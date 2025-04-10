@@ -10,7 +10,7 @@ const images = [
   'beauty.jpg',
   'women.jpg',
   'fresh meal.jpg', // renamed to avoid space issue
-  'indian meal.jpg', // renamed to avoid space issue
+  'indian meal.jpg',
 ];
 
 const Hero = () => {
@@ -27,33 +27,32 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden font-serif">
+    <section className="relative h-screen w-full overflow-hidden font-serif">
+      {/* Background Slider */}
       <Slider {...settings}>
         {images.map((img, index) => (
-          <div key={index}>
-            <div className="relative h-screen w-full">
-              <Image
-                src={`/images/${img}`}
-                alt={`Slide ${index + 1}`}
-                fill
-                priority
-                className="object-cover brightness-75"
-              />
-            </div>
+          <div key={index} className="relative h-screen w-full">
+            <Image
+              src={`/images/${img}`}
+              alt={`Slide ${index + 1}`}
+              fill
+              priority
+              className="object-cover brightness-[0.65] transition-all duration-500"
+            />
           </div>
         ))}
       </Slider>
 
-      {/* Gradient Blur Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80 backdrop-sm z-10" />
+      {/* Overlay Blur */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10" />
 
-      {/* Hero Text Content */}
+      {/* Text Content */}
       <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-6 text-white">
         <motion.h1
           initial={{ y: -60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold drop-shadow-2xl tracking-wide"
+          className="text-4xl md:text-6xl font-bold drop-shadow-xl leading-tight"
           style={{ fontFamily: `'Playfair Display', serif` }}
         >
           Eat Fresh. Live Healthy.
@@ -62,13 +61,13 @@ const Hero = () => {
         <motion.p
           initial={{ y: 60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl drop-shadow-xl"
+          transition={{ delay: 0.4, duration: 1 }}
+          className="mt-6 max-w-2xl text-base md:text-lg lg:text-xl text-gray-200"
         >
           Discover wholesome foods that fuel your life. Choose health every day with fresh, natural, and nourishing meals.
         </motion.p>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,116 +1,89 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 export default function Navbar() {
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [moneyOpen, setMoneyOpen] = useState(false);
+  const [dropdown, setDropdown] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleDropdownToggle = (section: string) => {
+    setDropdown(dropdown === section ? null : section);
+  };
+
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="text-lg font-bold text-gray-800">
-              BrandName
+        <div className="flex justify-between items-center h-16">
+          <Link href="/" className="text-xl font-bold text-green-700">
+            BrandName
+          </Link>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-gray-700 hover:text-green-600 font-medium">
+              Home
             </Link>
-          </div>
 
-          <div className="hidden md:flex items-center space-x-6">
-          <Link href="/" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Home</a>
-</Link>
-
-
-
-
-
-
-            {/* About Us Dropdown */}
-            <div className="relative">
+            {/* Dropdown: About Us */}
+            <div className="relative group">
               <button
-                onClick={() => setAboutOpen(!aboutOpen)}
-                className="text-gray-700 hover:text-green-600"
+                onClick={() => handleDropdownToggle('about')}
+                className="text-gray-700 hover:text-green-600 font-medium"
               >
                 About Us ▾
               </button>
-              {aboutOpen && (
-                <div className="absolute bg-white shadow-lg rounded mt-2 w-48 z-10">
-                  <ul className="py-2">
-                    <li><Link href="/about/company" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">About the Company</a>
-</Link></li>
-                    <li><Link href="/about/mission" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Mission</a>
-</Link></li>
-                    <li><Link href="/about/founder-message" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Founder Message</a>
-</Link></li>
-                    <li><Link href="/about/certification" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Certification</a>
-</Link></li>
-                    <li><Link href="/about/Contact" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Contact Us</a>
-</Link></li>
+              {dropdown === 'about' && (
+                <div className="absolute bg-white shadow-lg rounded-md mt-2 w-52 z-20 animate-fadeIn">
+                  <ul className="py-2 text-sm">
+                    <li><Link href="/about/company" className="block px-4 py-2 hover:bg-gray-100">About the Company</Link></li>
+                    <li><Link href="/about/mission" className="block px-4 py-2 hover:bg-gray-100">Mission</Link></li>
+                    <li><Link href="/about/founder-message" className="block px-4 py-2 hover:bg-gray-100">Founder Message</Link></li>
+                    <li><Link href="/about/certification" className="block px-4 py-2 hover:bg-gray-100">Certification</Link></li>
+                    <li><Link href="/about/Contact" className="block px-4 py-2 hover:bg-gray-100">Contact Us</Link></li>
                   </ul>
                 </div>
               )}
             </div>
 
-            <Link href="/products" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Our Products</a>
-</Link>
+            <Link href="/products" className="text-gray-700 hover:text-green-600 font-medium">
+              Our Products
+            </Link>
 
-            {/* Our Services Dropdown */}
-            <div className="relative">
+            {/* Dropdown: Services */}
+            <div className="relative group">
               <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className="text-gray-700 hover:text-green-600"
+                onClick={() => handleDropdownToggle('services')}
+                className="text-gray-700 hover:text-green-600 font-medium"
               >
                 Our Services ▾
               </button>
-              {servicesOpen && (
-                <div className="absolute bg-white shadow-lg rounded mt-2 w-56 z-10">
-                  <ul className="py-2">
-                    <li><Link href="/services/aarambh-academy" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Aarambh Academy</a>
-</Link></li>
-                    <li><Link href="/services/workshop" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Workshop</a>
-</Link></li>
-                    <li><Link href="/services/event" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Event</a>
-</Link></li>
-                    <li><Link href="/services/promotions" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Promotions</a>
-</Link></li>
+              {dropdown === 'services' && (
+                <div className="absolute bg-white shadow-lg rounded-md mt-2 w-56 z-20 animate-fadeIn">
+                  <ul className="py-2 text-sm">
+                    <li><Link href="/services/aarambh-academy" className="block px-4 py-2 hover:bg-gray-100">Aarambh Academy</Link></li>
+                    <li><Link href="/services/workshop" className="block px-4 py-2 hover:bg-gray-100">Workshop</Link></li>
+                    <li><Link href="/services/event" className="block px-4 py-2 hover:bg-gray-100">Event</Link></li>
+                    <li><Link href="/services/promotions" className="block px-4 py-2 hover:bg-gray-100">Promotions</Link></li>
                   </ul>
                 </div>
               )}
             </div>
 
-            {/* Make Money With Us Dropdown */}
-            <div className="relative">
+            {/* Dropdown: Make Money With Us */}
+            <div className="relative group">
               <button
-                onClick={() => setMoneyOpen(!moneyOpen)}
-                className="text-gray-700 hover:text-green-600"
+                onClick={() => handleDropdownToggle('money')}
+                className="text-gray-700 hover:text-green-600 font-medium"
               >
                 Make Money With Us ▾
               </button>
-              {moneyOpen && (
-                <div className="absolute bg-white shadow-lg rounded mt-2 w-60 z-10">
-                  <ul className="py-2">
-                    <li><Link href="/career" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Career with us</a>
-</Link></li>
-                    <li><Link href="/distributor" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Become a Distributor</a>
-</Link></li>
-                    <li><Link href="/partner" legacyBehavior>
-  <a className="inline-block !text-black hover:!text-green-600 !no-underline">Become a partner</a>
-</Link></li>
+              {dropdown === 'money' && (
+                <div className="absolute bg-white shadow-lg rounded-md mt-2 w-60 z-20 animate-fadeIn">
+                  <ul className="py-2 text-sm">
+                    <li><Link href="/career" className="block px-4 py-2 hover:bg-gray-100">Career with Us</Link></li>
+                    <li><Link href="/distributor" className="block px-4 py-2 hover:bg-gray-100">Become a Distributor</Link></li>
+                    <li><Link href="/partner" className="block px-4 py-2 hover:bg-gray-100">Become a Partner</Link></li>
                   </ul>
                 </div>
               )}
@@ -118,24 +91,24 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-700 focus:outline-none"
+              className="text-gray-700 text-2xl focus:outline-none"
             >
-              ☰
+              {menuOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         {menuOpen && (
-          <div className="md:hidden mt-2 space-y-2">
-            <Link href="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</Link>
-            <Link href="/about/company" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">About Us</Link>
-            <Link href="/products" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Our Products</Link>
-            <Link href="/services/arambh-academy" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Our Services</Link>
-            <Link href="/career" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Make Money With Us</Link>
+          <div className="md:hidden mt-2 bg-white shadow-md rounded-lg p-4 space-y-2">
+            <Link href="/" className="block text-gray-700 hover:text-green-600">Home</Link>
+            <Link href="/about/company" className="block text-gray-700 hover:text-green-600">About Us</Link>
+            <Link href="/products" className="block text-gray-700 hover:text-green-600">Our Products</Link>
+            <Link href="/services/aarambh-academy" className="block text-gray-700 hover:text-green-600">Our Services</Link>
+            <Link href="/career" className="block text-gray-700 hover:text-green-600">Make Money With Us</Link>
           </div>
         )}
       </div>
