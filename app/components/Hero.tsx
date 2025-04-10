@@ -19,7 +19,7 @@ const Hero = () => {
     infinite: true,
     autoplay: true,
     speed: 1200,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -45,7 +45,7 @@ const Hero = () => {
       </Slider>
 
       {/* Gradient Blur Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80 backdrop-blur-sm z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80 backdrop-sm z-10" />
 
       {/* Hero Text Content */}
       <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-6 text-white">
