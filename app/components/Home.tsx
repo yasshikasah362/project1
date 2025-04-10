@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import Nav from '../components/Navbar/Nav';
+
 import Hero from './Hero';
 
 export default function Home() {
@@ -9,16 +8,7 @@ export default function Home() {
 
       
 
-      {/* Hero Section */}
-      {/* <header className="bg-green-600 text-white text-center py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold">Healthy Lifestyle Food</h1>
-          <p className="text-lg mt-4">Eat fresh. Live healthy. Discover wholesome foods that fuel your life.</p>
-          <a href="#products" className="inline-block mt-6 px-6 py-3 bg-white text-green-600 font-semibold rounded shadow hover:bg-green-100 transition">
-            Explore Now
-          </a>
-        </div>
-      </header> */}
+    
 
       {/* Why Choose Us */}
       <section className="container mx-auto px-4 py-16" id="products">

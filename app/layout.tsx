@@ -1,4 +1,4 @@
-// app/layout.tsx
+
 import './globals.css';
 import { Playfair_Display } from 'next/font/google';
 import type { ReactNode } from 'react';
