@@ -9,8 +9,8 @@ import 'slick-carousel/slick/slick-theme.css';
 const images = [
   'beauty.jpg',
   'women.jpg',
-  'fresh-meal.jpg', // renamed to avoid space issue
-  'indian-meal.jpg', // renamed to avoid space issue
+  'fresh meal.jpg', // renamed to avoid space issue
+  'indian meal.jpg', // renamed to avoid space issue
 ];
 
 const Hero = () => {
