@@ -27,7 +27,7 @@ export default function AboutCompany() {
           Our mission is clear – to <span className="text-green-700 font-semibold">purchase</span>, <span className="text-green-700 font-semibold">sell</span>, <span className="text-green-700 font-semibold">manufacture</span>, <span className="text-green-700 font-semibold">import</span>, <span className="text-green-700 font-semibold">pack</span>, <span className="text-green-700 font-semibold">process</span>, and <span className="text-green-700 font-semibold">distribute</span> high-quality wellness and lifestyle products that make a difference.
         </p>
 
-        {/* No <p> tag wrapping the <ul> anymore */}
+       
         Our product categories span across:
 
         <ul className="list-disc list-inside mt-2 space-y-1 text-green-800 font-semibold">

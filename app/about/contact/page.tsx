@@ -11,7 +11,7 @@ export default function ContactUs() {
           Contact Us
         </h1>
         <p className="text-lg text-gray-600 mx-auto max-w-2xl">
-          For any inquiries, please don't hesitate to reach out to us using the contact details or form below.
+          For any inquiries, please don&apos;t hesitate to reach out to us using the contact details or form below.
         </p>
       </div>
 
@@ -88,8 +88,7 @@ export default function ContactUs() {
             <textarea 
               id="message" 
               name="message" 
-              
-              placeholder="Write your message here..." 
+               placeholder="Write your message here..." 
               className="border-2 border-gray-300 rounded-md p-4 text-lg"
               required
             />

@@ -8,7 +8,7 @@ export default function MissionPage() {
       {/* Heading Section */}
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold text-green-800 leading-tight">
-          Our Mission & Vision
+          Our Mission &amp; Vision
         </h1>
         <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
           Empowering a healthier future through high-quality products and services for all.
@@ -23,7 +23,7 @@ export default function MissionPage() {
             <h2 className="text-3xl font-semibold text-green-700">Our Mission</h2>
           </div>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Our “Mission” is to provide high-quality products and offer exceptional service to humanity. We are committed to selling products at very reasonable and affordable prices, aiming to make a meaningful difference in people's lives by promoting health and wellness.
+            Our &quot;Mission&quot; is to provide high-quality products and offer exceptional service to humanity. We are committed to selling products at very reasonable and affordable prices, aiming to make a meaningful difference in people&apos;s lives by promoting health and wellness.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export default function MissionPage() {
             <h2 className="text-3xl font-semibold text-green-700">Our Vision</h2>
           </div>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Our “Vision” is to become one of the top leading direct selling companies, known for providing products that improve the health and well-being of individuals. We aim to make quality wellness products accessible to all and to positively impact communities through our services.
+            Our &quot;Vision&quot; is to become one of the top leading direct selling companies, known for providing products that improve the health and well-being of individuals. We aim to make quality wellness products accessible to all and to positively impact communities through our services.
           </p>
         </div>
       </div>

@@ -5,7 +5,7 @@ import Testimonials from './Testimonials';
 import Services from './Services';
 import ContactSection from './ContactSection';
 import FAQ from './FAQ';
-import Footer from './Footer';
+
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <Services />
       <ContactSection />
       <FAQ />
-      {/* <Footer /> */}
+     
     </>
   );
 }

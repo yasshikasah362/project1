@@ -8,7 +8,7 @@ export default function FounderMessage() {
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-5xl font-extrabold text-green-800 leading-tight mb-4">
-          Founder’s Message
+          Founder&apos;s Message
         </h1>
         <p className="text-lg text-gray-600 mx-auto max-w-2xl">
           A message from the visionary leader who is committed to changing lives and empowering individuals to succeed.
@@ -17,21 +17,21 @@ export default function FounderMessage() {
 
       {/* Message Content Section */}
       <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between bg-white shadow-lg rounded-lg p-8">
-        {/* Founder’s Image & Name */}
+        {/* Founder&apos;s Image & Name */}
         <div className="flex items-center justify-center mb-6 md:mb-0">
           <div className="bg-green-600 rounded-full p-4">
             <FaUserTie className="text-white text-5xl" />
           </div>
         </div>
 
-        {/* Founder’s Message */}
+        {/* Founder&apos;s Message */}
         <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
           <p>
-            "Shuabaarambh" has brought an economic revolution in society through its innovative marketing system, allowing individuals to earn while working and sharing. 
+            &quot;Shuabaarambh&quot; has brought an economic revolution in society through its innovative marketing system, allowing individuals to earn while working and sharing. 
             Our mission is grounded in the belief that:
             <br />
             <br />
-            <strong>"Thinking together is a beginning, staying together is progress, and working together is success."</strong>
+            <strong>&quot;Thinking together is a beginning, staying together is progress, and working together is success.&quot;</strong>
             <br />
             <br />
             This philosophy has empowered us to create a platform where everyone can work in unity, achieve collective success, and grow together. We are on a journey of continuous improvement, where collaboration is the cornerstone of our success.
