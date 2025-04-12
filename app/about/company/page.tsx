@@ -27,18 +27,17 @@ export default function AboutCompany() {
           Our mission is clear – to <span className="text-green-700 font-semibold">purchase</span>, <span className="text-green-700 font-semibold">sell</span>, <span className="text-green-700 font-semibold">manufacture</span>, <span className="text-green-700 font-semibold">import</span>, <span className="text-green-700 font-semibold">pack</span>, <span className="text-green-700 font-semibold">process</span>, and <span className="text-green-700 font-semibold">distribute</span> high-quality wellness and lifestyle products that make a difference.
         </p>
 
-        <p>
-          Our product categories span across:
-          <ul className="list-disc list-inside mt-2 space-y-1 text-green-800 font-semibold">
-            <li>Health Care</li>
-            <li>Ayurvedic Cosmetics</li>
-            <li>Personal Wellness</li>
-            <li>FMCG Home Essentials</li>
-            <li>Electronics</li>
-            <li>Agricultural Products</li>
-            <li>Holistic Services</li>
-          </ul>
-        </p>
+        {/* Moved <ul> outside <p> */}
+        <p>Our product categories span across:</p>
+        <ul className="list-disc list-inside mt-2 space-y-1 text-green-800 font-semibold">
+          <li>Health Care</li>
+          <li>Ayurvedic Cosmetics</li>
+          <li>Personal Wellness</li>
+          <li>FMCG Home Essentials</li>
+          <li>Electronics</li>
+          <li>Agricultural Products</li>
+          <li>Holistic Services</li>
+        </ul>
 
         <p>
           We operate from our <span className="font-semibold">registered office</span> located in the lap of nature — <span className="text-green-700 font-bold">Chandla, District Chhatarpur, Madhya Pradesh - 471525</span>. A perfect blend of purity and purpose.
