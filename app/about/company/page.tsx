@@ -28,7 +28,8 @@ export default function AboutCompany() {
         </p>
 
         {/* No <p> tag wrapping the <ul> anymore */}
-        <p>Our product categories span across:</p>
+        Our product categories span across:
+
         <ul className="list-disc list-inside mt-2 space-y-1 text-green-800 font-semibold">
           <li>Health Care</li>
           <li>Ayurvedic Cosmetics</li>
