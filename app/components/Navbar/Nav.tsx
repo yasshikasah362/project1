@@ -20,8 +20,8 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-green-600 font-medium">
+          <div className="hidden md:flex justify-center items-center space-x-10 mx-auto">
+            <Link href="/" className="text-gray-700 hover:text-green-600 font-medium text-base">
               Home
             </Link>
 
@@ -29,24 +29,24 @@ export default function Navbar() {
             <div className="relative group">
               <button
                 onClick={() => handleDropdownToggle('about')}
-                className="text-gray-700 hover:text-green-600 font-medium"
+                className="text-gray-700 hover:text-green-600 font-medium text-base"
               >
                 About Us ▾
               </button>
               {dropdown === 'about' && (
                 <div className="absolute bg-white shadow-lg rounded-md mt-2 w-52 z-20 animate-fadeIn">
-                  <ul className="py-2 text-sm">
-                    <li><Link href="/about/company" className="block px-4 py-2 hover:bg-gray-100">About the Company</Link></li>
-                    <li><Link href="/about/mission" className="block px-4 py-2 hover:bg-gray-100">Mission</Link></li>
-                    <li><Link href="/about/founder-message" className="block px-4 py-2 hover:bg-gray-100">Founder Message</Link></li>
-                    <li><Link href="/about/certification" className="block px-4 py-2 hover:bg-gray-100">Certification</Link></li>
-                    <li><Link href="/about/Contact" className="block px-4 py-2 hover:bg-gray-100">Contact Us</Link></li>
+                  <ul className="py-2 text-base">
+                    <li><Link href="/about/company" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">About the Company</Link></li>
+                    <li><Link href="/about/mission" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Mission</Link></li>
+                    <li><Link href="/about/founder-message" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Founder Message</Link></li>
+                    <li><Link href="/about/certification" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Certification</Link></li>
+                    <li><Link href="/about/contact" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Contact Us</Link></li>
                   </ul>
                 </div>
               )}
             </div>
 
-            <Link href="/products" className="text-gray-700 hover:text-green-600 font-medium">
+            <Link href="/products" className="text-gray-700 hover:text-green-600 font-medium text-base">
               Our Products
             </Link>
 
@@ -54,17 +54,17 @@ export default function Navbar() {
             <div className="relative group">
               <button
                 onClick={() => handleDropdownToggle('services')}
-                className="text-gray-700 hover:text-green-600 font-medium"
+                className="text-gray-700 hover:text-green-600 font-medium text-base"
               >
                 Our Services ▾
               </button>
               {dropdown === 'services' && (
                 <div className="absolute bg-white shadow-lg rounded-md mt-2 w-56 z-20 animate-fadeIn">
-                  <ul className="py-2 text-sm">
-                    <li><Link href="/services/aarambh-academy" className="block px-4 py-2 hover:bg-gray-100">Aarambh Academy</Link></li>
-                    <li><Link href="/services/workshop" className="block px-4 py-2 hover:bg-gray-100">Workshop</Link></li>
-                    <li><Link href="/services/event" className="block px-4 py-2 hover:bg-gray-100">Event</Link></li>
-                    <li><Link href="/services/promotions" className="block px-4 py-2 hover:bg-gray-100">Promotions</Link></li>
+                  <ul className="py-2 text-base">
+                    <li><Link href="/services/aaram" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Aarambh Academy</Link></li>
+                    <li><Link href="/services/workshop" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Workshop</Link></li>
+                    <li><Link href="/services/event" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Event</Link></li>
+                    <li><Link href="/services/promotions" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Promotions</Link></li>
                   </ul>
                 </div>
               )}
@@ -74,16 +74,16 @@ export default function Navbar() {
             <div className="relative group">
               <button
                 onClick={() => handleDropdownToggle('money')}
-                className="text-gray-700 hover:text-green-600 font-medium"
+                className="text-gray-700 hover:text-green-600 font-medium text-base"
               >
                 Make Money With Us ▾
               </button>
               {dropdown === 'money' && (
                 <div className="absolute bg-white shadow-lg rounded-md mt-2 w-60 z-20 animate-fadeIn">
-                  <ul className="py-2 text-sm">
-                    <li><Link href="/career" className="block px-4 py-2 hover:bg-gray-100">Career with Us</Link></li>
-                    <li><Link href="/distributor" className="block px-4 py-2 hover:bg-gray-100">Become a Distributor</Link></li>
-                    <li><Link href="/partner" className="block px-4 py-2 hover:bg-gray-100">Become a Partner</Link></li>
+                  <ul className="py-2 text-base">
+                    <li><Link href="/career" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Career with Us</Link></li>
+                    <li><Link href="/distributor" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Become a Distributor</Link></li>
+                    <li><Link href="/partner" onClick={() => setDropdown(null)} className="block px-4 py-2 hover:bg-gray-100">Become a Partner</Link></li>
                   </ul>
                 </div>
               )}
@@ -103,21 +103,18 @@ export default function Navbar() {
 
         {/* Mobile Menu Dropdown */}
         <div
-  className={`md:hidden absolute top-16 left-0 w-full bg-white shadow-lg z-50 px-4 rounded-b-lg transition-all duration-300 ease-in-out transform ${
-    menuOpen ? 'opacity-100 translate-y-0 scale-100 py-4' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'
-  }`}
->
-  <div className="space-y-2">
-    <Link href="/" className="block text-gray-700 hover:text-green-600">Home</Link>
-    <Link href="/about/company" className="block text-gray-700 hover:text-green-600">About Us</Link>
-    <Link href="/products" className="block text-gray-700 hover:text-green-600">Our Products</Link>
-    <Link href="/services/aarambh-academy" className="block text-gray-700 hover:text-green-600">Our Services</Link>
-    <Link href="/career" className="block text-gray-700 hover:text-green-600">Make Money With Us</Link>
-  </div>
-</div>
-
-
-
+          className={`md:hidden absolute top-16 left-0 w-full bg-white shadow-lg z-50 px-4 rounded-b-lg transition-all duration-300 ease-in-out transform ${
+            menuOpen ? 'opacity-100 translate-y-0 scale-100 py-4' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'
+          }`}
+        >
+          <div className="space-y-2 text-base">
+            <Link href="/" className="block text-gray-700 hover:text-green-600">Home</Link>
+            <Link href="/about/company" className="block text-gray-700 hover:text-green-600">About Us</Link>
+            <Link href="/products" className="block text-gray-700 hover:text-green-600">Our Products</Link>
+            <Link href="/services/aarambh-academy" className="block text-gray-700 hover:text-green-600">Our Services</Link>
+            <Link href="/career" className="block text-gray-700 hover:text-green-600">Make Money With Us</Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
