@@ -102,15 +102,20 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Dropdown */}
-        {menuOpen && (
-          <div className="md:hidden mt-2 bg-white shadow-md rounded-lg p-4 space-y-2">
-            <Link href="/" className="block text-gray-700 hover:text-green-600">Home</Link>
-            <Link href="/about/company" className="block text-gray-700 hover:text-green-600">About Us</Link>
-            <Link href="/products" className="block text-gray-700 hover:text-green-600">Our Products</Link>
-            <Link href="/services/aarambh-academy" className="block text-gray-700 hover:text-green-600">Our Services</Link>
-            <Link href="/career" className="block text-gray-700 hover:text-green-600">Make Money With Us</Link>
-          </div>
-        )}
+        <div
+  className={`md:hidden transition-all duration-500 overflow-hidden bg-white shadow-md rounded-lg px-4 ${
+    menuOpen ? 'max-h-96 py-4 mt-2' : 'max-h-0'
+  }`}
+>
+  <div className="space-y-2">
+    <Link href="/" className="block text-gray-700 hover:text-green-600">Home</Link>
+    <Link href="/about/company" className="block text-gray-700 hover:text-green-600">About Us</Link>
+    <Link href="/products" className="block text-gray-700 hover:text-green-600">Our Products</Link>
+    <Link href="/services/aarambh-academy" className="block text-gray-700 hover:text-green-600">Our Services</Link>
+    <Link href="/career" className="block text-gray-700 hover:text-green-600">Make Money With Us</Link>
+  </div>
+</div>
+
       </div>
     </nav>
   );

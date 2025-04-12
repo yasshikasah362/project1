@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
     >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-green-800 mb-14">
-          Why Choose Us?
+          What Makes Us Different
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {features.map((item, idx) => (
