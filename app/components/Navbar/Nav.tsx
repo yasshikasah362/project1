@@ -103,8 +103,8 @@ export default function Navbar() {
 
         {/* Mobile Menu Dropdown */}
         <div
-  className={`md:hidden transition-all duration-500 overflow-hidden bg-white shadow-md rounded-lg px-4 ${
-    menuOpen ? 'max-h-96 py-4 mt-2' : 'max-h-0'
+  className={`md:hidden absolute top-16 left-0 w-full bg-white shadow-lg z-50 px-4 rounded-b-lg transition-all duration-300 ease-in-out transform ${
+    menuOpen ? 'opacity-100 translate-y-0 scale-100 py-4' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none'
   }`}
 >
   <div className="space-y-2">
@@ -115,6 +115,8 @@ export default function Navbar() {
     <Link href="/career" className="block text-gray-700 hover:text-green-600">Make Money With Us</Link>
   </div>
 </div>
+
+
 
       </div>
     </nav>
