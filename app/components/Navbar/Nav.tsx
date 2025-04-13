@@ -159,79 +159,99 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
 
-      {menuOpen && (
-  <div className="fixed top-0 left-0 right-0  bg-white bg-opacity-90 z-40 p-6 overflow-auto md:hidden transition-all">
-    <div className="space-y-6 text-base">
+      {/* Mobile Menu - Always Mounted, Animated with Classes */}
+<div
+  className={`fixed top-0 left-0 right-0 z-40 p-6 overflow-auto md:hidden bg-white bg-opacity-90 transition-all duration-500 ease-in-out transform ${
+    menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+  }`}
+>
+  <div className="space-y-6 text-base">
+    
+    {/* Home Link */}
+    <Link 
+      href="/" 
+      onClick={closeMobileMenu} 
+      className={`block text-gray-700 hover:text-green-600 text-lg font-medium ${pathname === '/' ? 'text-green-600' : ''}`}>
+      Home
+    </Link>
+
+    {/* About Us Dropdown */}
+    {/* ABOUT US DROPDOWN */}
+<div>
+  <button 
+    onClick={() => handleMobileDropdownToggle('about')} 
+    className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
+    About Us ▾
+  </button>
+  <div
+    className={`transition-all duration-500 ease-in-out overflow-hidden ${
+      mobileDropdown === 'about' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+    }`}
+  >
+    <ul className="mt-2 ml-4 space-y-1 text-sm">
+      <li><Link href="/about/company" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">About the Company</Link></li>
+      <li><Link href="/about/mission" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Mission</Link></li>
+      <li><Link href="/about/founder-message" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Founder Message</Link></li>
+      <li><Link href="/about/certification" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Certification</Link></li>
+      <li><Link href="/about/contact" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Contact Us</Link></li>
+    </ul>
+  </div>
+</div>
+
+
+    {/* Products Link */}
+    <Link 
+      href="/products" 
+      onClick={closeMobileMenu} 
+      className={`block text-gray-700 hover:text-green-600 text-lg font-medium ${pathname === '/products' ? 'text-green-600' : ''}`}>
+      Our Products
+    </Link>
+
+    {/* Services Dropdown */}
+    <div>
+      <button 
+        onClick={() => handleMobileDropdownToggle('services')} 
+        className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
+        Our Services ▾
+      </button>
+      <div
+    className={`transition-all duration-500 ease-in-out overflow-hidden ${
+      mobileDropdown === 'services' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+    }`}
+  >
+    <ul className="mt-2 ml-4 space-y-1 text-sm">
+      <li><Link href="/services/aarambh" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Aarambh Academy</Link></li>
+      <li><Link href="/services/workshop" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Workshop</Link></li>
+      <li><Link href="/services/event" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Event</Link></li>
+      <li><Link href="/services/promotions" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Promotions</Link></li>
+     
+    </ul>
+  </div>   
+    </div>
+
+    {/* Money Dropdown */}
+    <div>
+      <button 
+        onClick={() => handleMobileDropdownToggle('money')} 
+        className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
+        Make Money With Us ▾
+      </button>
+      <div
+    className={`transition-all duration-500 ease-in-out overflow-hidden ${
+      mobileDropdown === 'money' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+    }`}
+  >
+    <ul className="mt-2 ml-4 space-y-1 text-sm">
+      <li><Link href="/money/career" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">career with Us</Link></li>
+      <li><Link href="/money/distributor" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Become a Distributor</Link></li>
+      <li><Link href="/money/partner" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Become a Partner</Link></li>
+      </ul>
+  </div> 
       
-      {/* Home Link */}
-      <Link 
-        href="/" 
-        onClick={closeMobileMenu} 
-        className={`block text-gray-700 hover:text-green-600 text-lg font-medium ${pathname === '/' ? 'text-green-600' : ''}`}>
-        Home
-      </Link>
-
-      {/* About Us Dropdown */}
-      <div>
-        <button 
-          onClick={() => handleMobileDropdownToggle('about')} 
-          className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
-          About Us ▾
-        </button>
-        {mobileDropdown === 'about' && (
-          <ul className="mt-2 ml-4 space-y-1 text-sm">
-            <li><Link href="/about/company" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">About the Company</Link></li>
-            <li><Link href="/about/mission" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Mission</Link></li>
-            <li><Link href="/about/founder-message" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Founder Message</Link></li>
-            <li><Link href="/about/certification" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Certification</Link></li>
-            <li><Link href="/about/contact" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Contact Us</Link></li>
-          </ul>
-        )}
-      </div>
-
-      {/* Products Link */}
-      <Link 
-        href="/products" 
-        onClick={closeMobileMenu} 
-        className={`block text-gray-700 hover:text-green-600 text-lg font-medium ${pathname === '/products' ? 'text-green-600' : ''}`}>
-        Our Products
-      </Link>
-
-      {/* Services Dropdown */}
-      <div>
-        <button 
-          onClick={() => handleMobileDropdownToggle('services')} 
-          className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
-          Our Services ▾
-        </button>
-        {mobileDropdown === 'services' && (
-          <ul className="mt-2 ml-4 space-y-1 text-sm">
-            <li><Link href="/services/aarambh" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Aarambh Academy</Link></li>
-            <li><Link href="/services/workshop" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Workshop</Link></li>
-            <li><Link href="/services/event" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Event</Link></li>
-            <li><Link href="/services/promotions" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Promotions</Link></li>
-          </ul>
-        )}
-      </div>
-
-      {/* Money Dropdown */}
-      <div>
-        <button 
-          onClick={() => handleMobileDropdownToggle('money')} 
-          className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
-          Make Money With Us ▾
-        </button>
-        {mobileDropdown === 'money' && (
-          <ul className="mt-2 ml-4 space-y-1 text-sm">
-            <li><Link href="/money/career" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Career with Us</Link></li>
-            <li><Link href="/money/distributor" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Become a Distributor</Link></li>
-            <li><Link href="/money/partner" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Become a Partner</Link></li>
-          </ul>
-        )}
-      </div>
     </div>
   </div>
-)}
+</div>
+
 
 
 
