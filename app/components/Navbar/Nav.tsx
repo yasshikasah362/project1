@@ -45,13 +45,7 @@ export default function Navbar() {
     setDropdownTimeout(timeout);
   };
 
-  const handleMobileMouseLeave = () => {
-    if (dropdownTimeout) clearTimeout(dropdownTimeout);
-    const timeout = setTimeout(() => {
-      setMobileDropdown(null); // Close mobile dropdown after delay
-    }, 200);
-    setDropdownTimeout(timeout);
-  };
+ 
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
