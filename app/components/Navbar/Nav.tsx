@@ -45,17 +45,13 @@ export default function Navbar() {
     setDropdownTimeout(timeout);
   };
 
- 
-
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-        <Link href="/" className="flex items-center">
-  <img src="/images/logo.png" alt="Brand Logo" className="h-16 mr-2" />
-</Link>
-
-
+          <Link href="/" className="flex items-center">
+            <img src="/images/logo.png" alt="Brand Logo" className="h-16 mr-2" />
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex justify-center items-center space-x-10 mx-auto">
@@ -141,72 +137,106 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-700 text-2xl focus:outline-none"
-            >
-              {menuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
+
+          
+          {/* Toggle button */}
+   {/* Toggle Button - Always on top */}
+<div className="md:hidden fixed top-4 right-4 z-[999]">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-black text-3xl"
+  >
+    {menuOpen ? <FaTimes /> : <FaBars />}
+  </button>
+</div>
+
+  
+
+
+
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
+
       {menuOpen && (
-        <div className="fixed inset-0 bg-white z-40 p-6 overflow-auto md:hidden transition-all">
-          <div className="space-y-4 text-base">
-            <Link href="/" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-green-600 ${pathname === '/' ? 'text-green-600' : ''}`}>Home</Link>
+  <div className="fixed top-0 left-0 right-0  bg-white bg-opacity-90 z-40 p-6 overflow-auto md:hidden transition-all">
+    <div className="space-y-6 text-base">
+      
+      {/* Home Link */}
+      <Link 
+        href="/" 
+        onClick={closeMobileMenu} 
+        className={`block text-gray-700 hover:text-green-600 text-lg font-medium ${pathname === '/' ? 'text-green-600' : ''}`}>
+        Home
+      </Link>
 
-            {/* Mobile About Us Toggle */}
-            <div>
-              <button onClick={() => handleMobileDropdownToggle('about')} className="text-gray-700 font-medium">
-                About Us ▾
-              </button>
-              {mobileDropdown === 'about' && (
-                <ul className="mt-2 ml-4 space-y-1 text-sm">
-                  <li><Link href="/about/company" onClick={closeMobileMenu} className="block">About the Company</Link></li>
-                  <li><Link href="/about/mission" onClick={closeMobileMenu} className="block">Mission</Link></li>
-                  <li><Link href="/about/founder-message" onClick={closeMobileMenu} className="block">Founder Message</Link></li>
-                  <li><Link href="/about/certification" onClick={closeMobileMenu} className="block">Certification</Link></li>
-                  <li><Link href="/about/contact" onClick={closeMobileMenu} className="block">Contact Us</Link></li>
-                </ul>
-              )}
-            </div>
+      {/* About Us Dropdown */}
+      <div>
+        <button 
+          onClick={() => handleMobileDropdownToggle('about')} 
+          className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
+          About Us ▾
+        </button>
+        {mobileDropdown === 'about' && (
+          <ul className="mt-2 ml-4 space-y-1 text-sm">
+            <li><Link href="/about/company" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">About the Company</Link></li>
+            <li><Link href="/about/mission" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Mission</Link></li>
+            <li><Link href="/about/founder-message" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Founder Message</Link></li>
+            <li><Link href="/about/certification" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Certification</Link></li>
+            <li><Link href="/about/contact" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Contact Us</Link></li>
+          </ul>
+        )}
+      </div>
 
-            <Link href="/products" onClick={closeMobileMenu} className={`block text-gray-700 hover:text-green-600 ${pathname === '/products' ? 'text-green-600' : ''}`}>Our Products</Link>
+      {/* Products Link */}
+      <Link 
+        href="/products" 
+        onClick={closeMobileMenu} 
+        className={`block text-gray-700 hover:text-green-600 text-lg font-medium ${pathname === '/products' ? 'text-green-600' : ''}`}>
+        Our Products
+      </Link>
 
-            {/* Mobile Services Toggle */}
-            <div>
-              <button onClick={() => handleMobileDropdownToggle('services')} className="text-gray-700 font-medium">
-                Our Services ▾
-              </button>
-              {mobileDropdown === 'services' && (
-                <ul className="mt-2 ml-4 space-y-1 text-sm">
-                  <li><Link href="/services/aaram" onClick={closeMobileMenu} className="block">Aarambh Academy</Link></li>
-                  <li><Link href="/services/workshop" onClick={closeMobileMenu} className="block">Workshop</Link></li>
-                  <li><Link href="/services/event" onClick={closeMobileMenu} className="block">Event</Link></li>
-                  <li><Link href="/services/promotions" onClick={closeMobileMenu} className="block">Promotions</Link></li>
-                </ul>
-              )}
-            </div>
+      {/* Services Dropdown */}
+      <div>
+        <button 
+          onClick={() => handleMobileDropdownToggle('services')} 
+          className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
+          Our Services ▾
+        </button>
+        {mobileDropdown === 'services' && (
+          <ul className="mt-2 ml-4 space-y-1 text-sm">
+            <li><Link href="/services/aarambh" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Aarambh Academy</Link></li>
+            <li><Link href="/services/workshop" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Workshop</Link></li>
+            <li><Link href="/services/event" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Event</Link></li>
+            <li><Link href="/services/promotions" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Promotions</Link></li>
+          </ul>
+        )}
+      </div>
 
-            {/* Mobile Money Toggle */}
-            <div>
-              <button onClick={() => handleMobileDropdownToggle('money')} className="text-gray-700 font-medium">
-                Make Money With Us ▾
-              </button>
-              {mobileDropdown === 'money' && (
-                <ul className="mt-2 ml-4 space-y-1 text-sm">
-                  <li><Link href="/money/career" onClick={closeMobileMenu} className="block">Career with Us</Link></li>
-                  <li><Link href="/money/distributor" onClick={closeMobileMenu} className="block">Become a Distributor</Link></li>
-                  <li><Link href="/money/partner" onClick={closeMobileMenu} className="block">Become a Partner</Link></li>
-                </ul>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Money Dropdown */}
+      <div>
+        <button 
+          onClick={() => handleMobileDropdownToggle('money')} 
+          className="w-full text-left text-gray-700 font-medium text-lg p-2 hover:bg-gray-100 rounded-md">
+          Make Money With Us ▾
+        </button>
+        {mobileDropdown === 'money' && (
+          <ul className="mt-2 ml-4 space-y-1 text-sm">
+            <li><Link href="/money/career" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Career with Us</Link></li>
+            <li><Link href="/money/distributor" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Become a Distributor</Link></li>
+            <li><Link href="/money/partner" onClick={closeMobileMenu} className="block text-gray-600 hover:text-green-600 py-2">Become a Partner</Link></li>
+          </ul>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
+
+
+
+
     </nav>
   );
 }
