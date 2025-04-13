@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function CertificationPage() {
   return (
-    <div className="bg-gradient-to-br from-green-100 via-white to-green-50 py-16">
+    <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50 py-16">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold text-green-800 mb-4">
